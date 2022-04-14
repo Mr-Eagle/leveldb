@@ -1,1 +1,108 @@
-<mxfile host="app.diagrams.net" modified="2022-04-14T03:13:23.492Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36" version="17.4.1" etag="5kAFB8eKaBtwceu10rgk" type="github"><diagram id="KQUctLpCu2ntFSWZS1Xu">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-04-14T05:42:55.881Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36" etag="oIm2eS6kmY9Oo5mOsyd7" version="17.4.1" type="github">
+  <diagram id="KQUctLpCu2ntFSWZS1Xu" name="第 1 页">
+    <mxGraphModel dx="2377" dy="3173" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#F4F1DE" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UuF3cB1NPZclrfG2085--6" value="hello_leveldb.cc" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-387" y="6" width="384" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--7" value="    leveldb::DB *db = nullptr;&#xa;    // std::cout &lt;&lt; leveldb::hello&lt;&lt;std::endl;&#xa;    leveldb::Options options;" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--6">
+          <mxGeometry y="30" width="384" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--8" value="    options.create_if_missing = true; //更新状态机" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--6">
+          <mxGeometry y="82" width="384" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--43" value="leveldb::Status status = leveldb::DB::Open(options, &quot;/tmp/testdb&quot;, &amp;db);" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--6">
+          <mxGeometry y="112" width="384" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--44" value="    //判断状态是否正常&#xa;    assert(status.ok());" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--6">
+          <mxGeometry y="142" width="384" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--45" value="//创建k-v&#xa;    std::string key = &quot;A&quot;;&#xa;    std::string value = &quot;a&quot;;&#xa;    std::string get_value; //获取value" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--6">
+          <mxGeometry y="172" width="384" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--46" value="    leveldb::Status s = db-&gt;Put(leveldb::WriteOptions(), key, value);" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--6">
+          <mxGeometry y="236" width="384" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--47" value="    if (s.ok())&#xa;        s = db-&gt;Get(leveldb::ReadOptions(), &quot;A&quot;, &amp;get_value);" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--6">
+          <mxGeometry y="280" width="384" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--10" value="options.cc" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="178" y="-1250" width="290" height="369" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--11" value="namespace leveldb&#xa;{&#xa;  Options::Options()&#xa;      : comparator(BytewiseComparator()),&#xa;        env(Env::Default()),&#xa;        compression(kSnappyCompression),&#xa;        create_if_missing(false),&#xa;        error_if_exists(false),&#xa;        paranoid_checks(false),&#xa;        info_log(NULL),&#xa;        write_buffer_size(4 &lt;&lt; 20),&#xa;        max_open_files(1000),&#xa;        block_cache(NULL),&#xa;        block_size(4096),&#xa;        block_restart_interval(16),&#xa;        max_file_size(2 &lt;&lt; 20),&#xa;        reuse_logs(false),&#xa;        filter_policy(NULL)&#xa;  {&#xa;  }&#xa;} // namespace leveldb" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--10">
+          <mxGeometry y="30" width="290" height="339" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--14" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;labelBackgroundColor=#F4F1DE;" edge="1" parent="1" source="UuF3cB1NPZclrfG2085--7" target="UuF3cB1NPZclrfG2085--11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--20" value="comparator.cc" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="584" y="-1250" width="328" height="387" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--23" value="class Comparator {&#xa; public:&#xa;  virtual ~Comparator();&#xa;  virtual const char* Name() const = 0;&#xa;  virtual void FindShortestSeparator(&#xa;      std::string* start,&#xa;      const Slice&amp; limit) const = 0;&#xa;  virtual void FindShortSuccessor(std::string* key) const = 0;&#xa;};&#xa;extern const Comparator* BytewiseComparator();&#xa;}" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--20">
+          <mxGeometry y="30" width="328" height="179" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--28" value="static port::OnceType once = LEVELDB_ONCE_INIT;&#xa;static const Comparator* bytewise;" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--20">
+          <mxGeometry y="209" width="328" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--30" value="static void InitModule() {&#xa;  bytewise = new BytewiseComparatorImpl;&#xa;}" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--20">
+          <mxGeometry y="252" width="328" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--32" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;labelBackgroundColor=#F4F1DE;" edge="1" parent="UuF3cB1NPZclrfG2085--20" source="UuF3cB1NPZclrfG2085--21" target="UuF3cB1NPZclrfG2085--30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--21" value="const Comparator* BytewiseComparator() {&#xa;  port::InitOnce(&amp;once, InitModule);&#xa;  return bytewise;&#xa;}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--20">
+          <mxGeometry y="318" width="328" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--24" value="port_posix.cc" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="-1252" width="486" height="629" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--25" value="namespace leveldb&#xa;&#xa;{&#xa;  namespace port&#xa;  {&#xa;    static void PthreadCall(const char *label, int result)&#xa;    {&#xa;      if (result != 0)&#xa;      {&#xa;        fprintf(stderr, &quot;pthread %s: %s\n&quot;, label, strerror(result));&#xa;        abort();&#xa;      }&#xa;    }&#xa;    Mutex::Mutex() { PthreadCall(&quot;init mutex&quot;, pthread_mutex_init(&amp;mu_, NULL)); }&#xa;    Mutex::~Mutex() { PthreadCall(&quot;destroy mutex&quot;, pthread_mutex_destroy(&amp;mu_)); }&#xa;    void Mutex::Lock() { PthreadCall(&quot;lock&quot;, pthread_mutex_lock(&amp;mu_)); }&#xa;    void Mutex::Unlock() { PthreadCall(&quot;unlock&quot;, pthread_mutex_unlock(&amp;mu_)); }&#xa;    CondVar::CondVar(Mutex *mu)&#xa;        : mu_(mu)&#xa;    {&#xa;      PthreadCall(&quot;init cv&quot;, pthread_cond_init(&amp;cv_, NULL));&#xa;    }&#xa;    CondVar::~CondVar() { PthreadCall(&quot;destroy cv&quot;, pthread_cond_destroy(&amp;cv_)); }&#xa;    void CondVar::Wait()&#xa;    {&#xa;      PthreadCall(&quot;wait&quot;, pthread_cond_wait(&amp;cv_, &amp;mu_-&gt;mu_));&#xa;    }&#xa;    void CondVar::Signal()&#xa;    {&#xa;      PthreadCall(&quot;signal&quot;, pthread_cond_signal(&amp;cv_));&#xa;    }&#xa;    void CondVar::SignalAll()&#xa;    {&#xa;      PthreadCall(&quot;broadcast&quot;, pthread_cond_broadcast(&amp;cv_));&#xa;    }&#xa;    void InitOnce(OnceType *once, void (*initializer)())&#xa;    {&#xa;      PthreadCall(&quot;once&quot;, pthread_once(once, initializer));&#xa;    }&#xa;  } // namespace port&#xa;} // namespace leveldb&#xa;" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--24">
+          <mxGeometry y="30" width="486" height="599" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--27" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;labelBackgroundColor=#F4F1DE;" edge="1" parent="1" source="UuF3cB1NPZclrfG2085--21" target="UuF3cB1NPZclrfG2085--25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--31" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;labelBackgroundColor=#F4F1DE;" edge="1" parent="1" source="UuF3cB1NPZclrfG2085--11" target="UuF3cB1NPZclrfG2085--21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--33" value="env.h" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="518" y="-836" width="417" height="648" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--34" value="class Env {&#xa; public:&#xa;  Env() { }&#xa;  virtual ~Env();&#xa;  static Env* Default();&#xa;  virtual Status NewSequentialFile(const std::string&amp; fname,&#xa;                                   SequentialFile** result) = 0;&#xa;  virtual Status NewRandomAccessFile(const std::string&amp; fname,&#xa;                                     RandomAccessFile** result) = 0;&#xa;  virtual Status NewWritableFile(const std::string&amp; fname,&#xa;                                 WritableFile** result) = 0;&#xa;  virtual Status NewAppendableFile(const std::string&amp; fname,&#xa;                                   WritableFile** result);&#xa;  virtual bool FileExists(const std::string&amp; fname) = 0;&#xa;  virtual Status GetChildren(const std::string&amp; dir,&#xa;                             std::vector&lt;std::string&gt;* result) = 0;&#xa;  virtual Status DeleteFile(const std::string&amp; fname) = 0;&#xa;  virtual Status CreateDir(const std::string&amp; dirname) = 0;&#xa;  virtual Status DeleteDir(const std::string&amp; dirname) = 0;&#xa;  virtual Status GetFileSize(const std::string&amp; fname, uint64_t* file_size) = 0;&#xa;  virtual Status RenameFile(const std::string&amp; src,&#xa;                            const std::string&amp; target) = 0;&#xa;  virtual Status LockFile(const std::string&amp; fname, FileLock** lock) = 0;&#xa;  virtual Status UnlockFile(FileLock* lock) = 0;&#xa;  virtual void Schedule(&#xa;      void (*function)(void* arg),&#xa;      void* arg) = 0;&#xa;  virtual void StartThread(void (*function)(void* arg), void* arg) = 0;&#xa;  virtual Status GetTestDirectory(std::string* path) = 0;&#xa;  virtual Status NewLogger(const std::string&amp; fname, Logger** result) = 0;&#xa;  virtual uint64_t NowMicros() = 0;&#xa;  virtual void SleepForMicroseconds(int micros) = 0;&#xa; private:&#xa;  Env(const Env&amp;);&#xa;  void operator=(const Env&amp;);&#xa;};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--33">
+          <mxGeometry y="30" width="417" height="542" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--36" value="  Env *Env::Default()&#xa;  {&#xa;    pthread_once(&amp;once, InitDefaultEnv);&#xa;    return default_env;&#xa;  }" style="text;strokeColor=#E07A5F;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--33">
+          <mxGeometry y="572" width="417" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--35" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;labelBackgroundColor=#F4F1DE;" edge="1" parent="1" source="UuF3cB1NPZclrfG2085--11" target="UuF3cB1NPZclrfG2085--34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--37" value="env_posix.cc" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;" vertex="1" parent="1">
+          <mxGeometry x="516" y="-138" width="383" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--38" value="enum CompressionType {&#xa;  // NOTE: do not change the values of existing entries, as these are&#xa;  // part of the persistent format on disk.&#xa;  kNoCompression     = 0x0,&#xa;  kSnappyCompression = 0x1&#xa;};" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--37">
+          <mxGeometry y="30" width="383" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--41" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;labelBackgroundColor=#F4F1DE;" edge="1" parent="1" source="UuF3cB1NPZclrfG2085--11" target="UuF3cB1NPZclrfG2085--38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="477" y="-1050" />
+              <mxPoint x="477" y="-50" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--48" value="db.h" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;sketch=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;" vertex="1" parent="1">
+          <mxGeometry x="245" y="37" width="436" height="411" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--49" value="class DB&#xa;  {&#xa;  public:&#xa;    static Status Open(const Options &amp;options,&#xa;                       const std::string &amp;name,&#xa;                       DB **dbptr);&#xa;    DB() {}&#xa;    virtual ~DB();&#xa;    virtual Status Put(const WriteOptions &amp;options,&#xa;                       const Slice &amp;key,&#xa;                       const Slice &amp;value) = 0;&#xa;    virtual Status Delete(const WriteOptions &amp;options, const Slice &amp;key) = 0;&#xa;    virtual Status Write(const WriteOptions &amp;options, WriteBatch *updates) = 0;&#xa;    virtual Status Get(const ReadOptions &amp;options,&#xa;                       const Slice &amp;key, std::string *value) = 0;&#xa;    virtual Iterator *NewIterator(const ReadOptions &amp;options) = 0;&#xa;    virtual const Snapshot *GetSnapshot() = 0;&#xa;    virtual void ReleaseSnapshot(const Snapshot *snapshot) = 0;&#xa;    virtual bool GetProperty(const Slice &amp;property, std::string *value) = 0;&#xa;    virtual void GetApproximateSizes(const Range *range, int n,&#xa;                                     uint64_t *sizes) = 0;&#xa;    virtual void CompactRange(const Slice *begin, const Slice *end) = 0;&#xa;  private:&#xa;    DB(const DB &amp;);&#xa;    void operator=(const DB &amp;);&#xa;  };" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;rounded=0;sketch=0;fontColor=#393C56;" vertex="1" parent="UuF3cB1NPZclrfG2085--48">
+          <mxGeometry y="30" width="436" height="381" as="geometry" />
+        </mxCell>
+        <mxCell id="UuF3cB1NPZclrfG2085--52" style="edgeStyle=orthogonalEdgeStyle;curved=0;rounded=1;sketch=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontColor=#393C56;strokeColor=#E07A5F;fillColor=#F2CC8F;" edge="1" parent="1" source="UuF3cB1NPZclrfG2085--43" target="UuF3cB1NPZclrfG2085--49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
